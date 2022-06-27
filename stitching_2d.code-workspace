@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.defaultInterpreterPath": "/home/piotr/miniconda3/envs/pyimagej/bin/python"
+		// "python.defaultInterpreterPath": "/home/piotr/miniconda3/envs/plotting/bin/python"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Python: test.py",
+				"type": "python",
+				"request": "launch",
+				"program": "${workspaceFolder}/test.py",
+				"console": "integratedTerminal",
+				"justMyCode": false
+			}
+		]
+	}
+}
