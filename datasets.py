@@ -1225,25 +1225,24 @@ def dataset_20211209_organoid(data_path):
 
 
 def dataset_20211220_organoid(data_path):
-    images = []
-    sign = -1
-    percentile = 2
-    # overlap = 0.35
-    overlap = 0.1
+    sign = -1  # invert phase if necessary
+    overlap = 0.1  # overlap ratio
     first_x = 1
-    last_x = 14  # 8 - 17
+    # phase image subset in x and y directions
+    last_x = 14
     first_y = 1
-    last_y = 16  # 8 - 19
+    last_y = 16
     cols_num = last_x - first_x + 1
     rows_num = last_y - first_y + 1
-    timelapse_start = 2
-    timelapse_stop = 3
+    # timelapse range
+    timelapse_start = 2  # included
+    timelapse_stop = 3  # excluded
+    # building paths to data
     home_path = data_path / Path('stitching-2d/organoid/2021-12-20_Cell_phase_map_1p3NA_40x/')
     images_path = 'phase'
-    stitched_name = 'merged_fiji.tiff'
     description = 'organoid'
     ref_name = 'ref310.tiff'
-    # paths = [[images_path + 'r{:d}-c{:d}.png'.format(row, col) for col in range(cols_num)] for row in range(rows_num)]
+    # 2D list of paths to the images to be processed
     paths = [
         [
             [
@@ -1256,6 +1255,7 @@ def dataset_20211220_organoid(data_path):
         ]
         for tp in range(timelapse_start, timelapse_stop)
     ]
+    # params dict to be passed to the constructor of the ImageCollection class
     params = {
         'sign': sign,
         'overlap': overlap,

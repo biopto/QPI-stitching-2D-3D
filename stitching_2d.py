@@ -73,6 +73,7 @@ def run():
         abr_curr = images.return_average_aberrations()
         abr_curr_leg, _ = legendre_fitting_nan(abr_curr, 3)
         if False:
+            # Test which systematic aberration removal will work best
             im_raw = images.image(1, 2)
             labels = ['AME', 'FAME', 'AMEcurr', 'FAMEcurr']
             im_list = [im_raw - avg_abr, im_raw - avg_abr_leg, im_raw - abr_curr, im_raw - abr_curr_leg]
